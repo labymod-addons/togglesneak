@@ -28,12 +28,13 @@ buildscript {
     }
 
     dependencies {
-        classpath("net.labymod.gradle", "addon", "0.2.51")
+        classpath("net.labymod.gradle", "addon", "0.2.52")
     }
 }
 
 plugins {
     id("java-library")
+    id("org.cadixdev.licenser") version ("0.6.1")
 }
 
 group = "org.example"
@@ -46,6 +47,7 @@ java.toolchain.languageVersion.set(JavaLanguageVersion.of(17))
 subprojects {
     plugins.apply("java-library")
     plugins.apply("net.labymod.gradle.addon")
+    plugins.apply("org.cadixdev.licenser")
 
     repositories {
         maven("https://libraries.minecraft.net/")
@@ -56,14 +58,18 @@ subprojects {
     tasks.compileJava {
         options.encoding = "UTF-8"
     }
+
+    license {
+        header(rootProject.file("gradle/LICENSE-HEADER.txt"))
+        newLine.set(true)
+    }
 }
 
 addon {
     addonInfo {
-        namespace("example")
-        displayName("Example Addon")
-        author("Example Author")
-        description("An Example Description!")
+        namespace("togglesneak")
+        displayName("ToggleSneak")
+        author("LabyMedia GmbH")
         version(System.getenv().getOrDefault("VERSION", "0.0.0"))
 
         //if you want to add dependencies, go to the build.gradle.kts in the core or api module

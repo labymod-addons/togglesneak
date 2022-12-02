@@ -40,35 +40,20 @@ volt {
 
     packageName("org.example.addon.v1_18.mixins")
 
-    //Use this if you want to inherit the mixins from your 1.17 implementation
-    //packageName("org.example.addon.v1_17.mixins")
-    //inheritFrom("v1_17")
-
     version = minecraftGameVersion
 }
 
-//Use this if you want to inherit the code from your 1.17 implementation
-//val inheritv117 = sourceSets.create("inherit-v1_17") {
-//    java.srcDirs(project.files("../v1_17/src/main/java/"))
-//
-//    //Use the following if you want to inherit the 1.17 dependent code but not everything is given in your 1.18 code
-//    java {
-//        exclude("org.example.addon.v1_17.mixins.ExampleMixin")
-//    }
-//}
-//
-//sourceSets.getByName("main") {
-//    java.srcDirs(inheritv117.java)
-//}
+val inheritv117 = sourceSets.create("inherit-v1_17") {
+    java.srcDirs(project.files("../v1_17/src/main/java"))
+}
+
+sourceSets.getByName("main") {
+    java.srcDirs(inheritv117.java)
+}
 
 intellij {
     minorMinecraftVersion(minecraftVersionTag)
     val javaVersion = project.findProperty("net.labymod.runconfig-v1_18-java-version")
-
-    //Use this if you want to rename your 1.17 dependent code to 1.18
-    //renameApiMixin {
-    //    relocate("org.example.addon.v1_17.", "org.example.addon.v1_18.")
-    //}
 
     if (javaVersion != null) {
         run {
@@ -77,8 +62,14 @@ intellij {
     }
 }
 
-tasks.collectNatives {
-    into("${project.gradle.gradleUserHomeDir}/caches/VanillaGradle/v2/natives/${minecraftGameVersion}/")
+tasks {
+    collectNatives {
+        into("${project.gradle.gradleUserHomeDir}/caches/VanillaGradle/v2/natives/${minecraftGameVersion}/")
+    }
+
+    renameApiMixin {
+        relocate("net.labymod.addons.togglesneak.v1_17.", "net.labymod.addons.togglesneak.v1_18.")
+    }
 }
 
 java {
