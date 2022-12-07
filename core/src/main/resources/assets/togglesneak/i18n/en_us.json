@@ -1,0 +1,21 @@
+{
+  "togglesneak" : {
+    "settings" : {
+      "name" : "ToggleSneak",
+      "enabled" : {
+        "name" : "Enabled"
+      },
+      "toggleSprint" : {
+        "name" : "Toggle Sprint"
+      },
+      "toggleSneak" : {
+        "name" : "Toggle Sneak"
+      }
+    },
+    "hudWidget" : {
+      "toggleSneak" : {
+        "name" : "ToggleSneak"
+      }
+    }
+  }
+}
