@@ -56,44 +56,31 @@ public class ToggleSneakHudWidget extends TextHudWidget<TextHudWidgetConfig> {
   }
 
   @Override
-  public boolean isVisibleInGame() {
-    boolean sprinting = this.isSprinting();
-    boolean sneaking = this.isSneaking();
-    return sprinting || sneaking;
-  }
-
-  private boolean isSprinting() {
-    State currentState = State.NO;
+  public void onTick() {
+    State currentSneakState = State.NO;
     ClientPlayer clientPlayer = this.labyAPI.minecraft().clientPlayer();
-    if (clientPlayer != null && clientPlayer.isSprinting()) {
-      if (this.service.isSprintToggled()) {
-        currentState = State.TOGGLED;
-      } else if (this.service.isSprintPressed()) {
-        currentState = State.HOLDING;
-      } else {
-        currentState = State.VANILLA;
-      }
-    }
-
-    this.updateSprintingTextLine(currentState);
-    return currentState != State.NO;
-  }
-
-  private boolean isSneaking() {
-    State currentState = State.NO;
-    ClientPlayer clientPlayer = this.labyAPI.minecraft().clientPlayer();
-    if (clientPlayer != null && clientPlayer.isCrouching()) {
+    if (clientPlayer != null && !clientPlayer.isSprinting()) {
       if (this.service.isSneakToggled()) {
-        currentState = State.TOGGLED;
+        currentSneakState = State.TOGGLED;
       } else if (this.service.isSneakPressed()) {
-        currentState = State.HOLDING;
-      } else {
-        currentState = State.VANILLA;
+        currentSneakState = State.HOLDING;
       }
     }
 
-    this.updateSneakingTextLine(currentState);
-    return currentState != State.NO;
+    this.updateSneakingTextLine(currentSneakState);
+
+    State currentCrouchState = State.NO;
+    if (clientPlayer != null && currentSneakState == State.NO) {
+      if (this.service.isSprintToggled()) {
+        currentCrouchState = State.TOGGLED;
+      } else if (this.service.isSprintPressed()) {
+        currentCrouchState = State.HOLDING;
+      } else if (clientPlayer.isSprinting()) {
+        currentCrouchState = State.VANILLA;
+      }
+    }
+
+    this.updateSprintingTextLine(currentCrouchState);
   }
 
   private void updateSprintingTextLine(State currentState) {
