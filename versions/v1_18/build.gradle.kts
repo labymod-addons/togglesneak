@@ -40,15 +40,13 @@ volt {
 
     packageName("org.example.addon.v1_18.mixins")
 
+    inheritFrom("v1_17")
+
     version = minecraftGameVersion
 }
 
-val inheritv117 = sourceSets.create("inherit-v1_17") {
-    java.srcDirs(project.files("../v1_17/src/main/java"))
-}
+val inheritv117 = sourceSets.inheritFrom(project, "v1_17") {
 
-sourceSets.getByName("main") {
-    java.srcDirs(inheritv117.java)
 }
 
 intellij {
