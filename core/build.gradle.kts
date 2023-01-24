@@ -7,7 +7,6 @@ repositories {
 }
 
 dependencies {
-    labyProcessor("processor")
     api(project(":api"))
 }
 
