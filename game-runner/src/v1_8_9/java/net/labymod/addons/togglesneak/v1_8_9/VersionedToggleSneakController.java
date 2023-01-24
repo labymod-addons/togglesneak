@@ -14,22 +14,22 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
  */
 
-package net.labymod.addons.togglesneak.v1_8;
+package net.labymod.addons.togglesneak.v1_8_9;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;
 import net.labymod.addons.togglesneak.core.controller.ToggleSneakController;
 import net.labymod.api.event.Phase;
-import net.labymod.api.models.Implement;
+import net.labymod.api.models.Implements;
 import net.minecraft.client.Minecraft;
 import net.minecraft.util.MovementInput;
 
 @Singleton
-@Implement(ToggleSneakController.class)
+@Implements(ToggleSneakController.class)
 public class VersionedToggleSneakController extends ToggleSneakController {
 
   @Inject
-  private VersionedToggleSneakController() {
+  public VersionedToggleSneakController() {
   }
 
   @Override
@@ -47,10 +47,6 @@ public class VersionedToggleSneakController extends ToggleSneakController {
   public void setSneaking(boolean sneaking) {
     super.setSneaking(sneaking);
     this.getMovementInput().updatePlayerMoveState();
-  }
-
-  public float getForwardMovingSpeed() {
-    return this.getMovementInput().moveForward;
   }
 
   private MovementInput getMovementInput() {

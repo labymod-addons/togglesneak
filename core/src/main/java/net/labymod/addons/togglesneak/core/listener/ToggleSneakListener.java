@@ -16,7 +16,6 @@
 
 package net.labymod.addons.togglesneak.core.listener;
 
-import javax.inject.Inject;
 import net.labymod.addons.togglesneak.core.ToggleSneak;
 import net.labymod.addons.togglesneak.core.controller.ToggleSneakController;
 import net.labymod.addons.togglesneak.core.service.ToggleSneakService;
@@ -33,12 +32,11 @@ public class ToggleSneakListener {
   private final ToggleSneakService service;
   private final ToggleSneakController controller;
 
-  @Inject
-  private ToggleSneakListener(
+  public ToggleSneakListener(
       ToggleSneak toggleSneak,
-      LabyAPI labyAPI,
+      ToggleSneakController controller,
       ToggleSneakService service,
-      ToggleSneakController controller
+      LabyAPI labyAPI
   ) {
     this.toggleSneak = toggleSneak;
     this.labyAPI = labyAPI;
@@ -82,7 +80,7 @@ public class ToggleSneakListener {
     }
 
     this.controller.setSprinting(
-        !reset && this.controller.getForwardMovingSpeed() > 0.0F && this.service.isSprintToggled()
+        !reset && clientPlayer.getForwardMovingSpeed() > 0.0F && this.service.isSprintToggled()
     );
   }
 

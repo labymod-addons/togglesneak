@@ -16,8 +16,6 @@
 
 package net.labymod.addons.togglesneak.core.hudwidget;
 
-import javax.inject.Inject;
-import net.labymod.addons.togglesneak.core.controller.ToggleSneakController;
 import net.labymod.addons.togglesneak.core.service.ToggleSneakService;
 import net.labymod.api.client.entity.player.ClientPlayer;
 import net.labymod.api.client.gui.hud.hudwidget.text.TextHudWidget;
@@ -27,7 +25,6 @@ import net.labymod.api.util.TextFormat;
 
 public class ToggleSneakHudWidget extends TextHudWidget<TextHudWidgetConfig> {
 
-  private final ToggleSneakController controller;
   private final ToggleSneakService service;
 
   private TextLine sprintingLine;
@@ -36,11 +33,8 @@ public class ToggleSneakHudWidget extends TextHudWidget<TextHudWidgetConfig> {
   private State lastSprintState;
   private State lastSneakState;
 
-  @Inject
-  private ToggleSneakHudWidget(ToggleSneakController contoller, ToggleSneakService service) {
+  public ToggleSneakHudWidget(ToggleSneakService service) {
     super("toggleSneak");
-
-    this.controller = contoller;
     this.service = service;
   }
 

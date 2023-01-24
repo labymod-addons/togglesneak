@@ -19,8 +19,14 @@ package net.labymod.addons.togglesneak.core.controller;
 import net.labymod.api.Laby;
 import net.labymod.api.client.options.MinecraftInputMapping;
 import net.labymod.api.event.Phase;
+import net.labymod.api.reference.annotation.Referenceable;
+import org.jetbrains.annotations.Nullable;
 
+@Nullable
+@Referenceable
 public abstract class ToggleSneakController {
+
+  public abstract Phase phase();
 
   public boolean isSprintPressed() {
     return this.sprintInputMapping().isActuallyDown();
@@ -44,12 +50,6 @@ public abstract class ToggleSneakController {
     } else {
       this.sneakInputMapping().unpress();
     }
-  }
-
-  public abstract float getForwardMovingSpeed();
-
-  public Phase phase() {
-    return Phase.PRE;
   }
 
   private MinecraftInputMapping sprintInputMapping() {

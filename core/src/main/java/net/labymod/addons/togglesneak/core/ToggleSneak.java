@@ -16,22 +16,32 @@
 
 package net.labymod.addons.togglesneak.core;
 
-import com.google.inject.Singleton;
+import net.labymod.addons.togglesneak.core.controller.DefaultToggleSneakController;
+import net.labymod.addons.togglesneak.core.controller.ToggleSneakController;
+import net.labymod.addons.togglesneak.core.generated.DefaultReferenceStorage;
 import net.labymod.addons.togglesneak.core.hudwidget.ToggleSneakHudWidget;
 import net.labymod.addons.togglesneak.core.listener.ToggleSneakListener;
+import net.labymod.addons.togglesneak.core.service.ToggleSneakService;
 import net.labymod.api.addon.LabyAddon;
-import net.labymod.api.inject.LabyGuice;
-import net.labymod.api.models.addon.annotation.AddonListener;
+import net.labymod.api.models.addon.annotation.AddonMain;
 
-@Singleton
-@AddonListener
+@AddonMain
 public class ToggleSneak extends LabyAddon<ToggleSneakConfiguration> {
+
 
   @Override
   protected void enable() {
     this.registerSettingCategory();
-    this.registerListener(ToggleSneakListener.class);
-    this.labyAPI().hudWidgetRegistry().register(LabyGuice.getInstance(ToggleSneakHudWidget.class));
+
+    DefaultReferenceStorage references = this.getReferenceStorageAccessor();
+    ToggleSneakService service = new ToggleSneakService();
+    ToggleSneakController controller = references.getToggleSneakController();
+    if (controller == null) {
+      controller = new DefaultToggleSneakController();
+    }
+
+    this.registerListener(new ToggleSneakListener(this, controller, service, this.labyAPI()));
+    this.labyAPI().hudWidgetRegistry().register(new ToggleSneakHudWidget(service));
   }
 
   @Override

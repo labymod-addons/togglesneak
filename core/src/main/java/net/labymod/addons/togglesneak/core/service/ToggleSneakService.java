@@ -16,10 +16,6 @@
 
 package net.labymod.addons.togglesneak.core.service;
 
-import javax.inject.Inject;
-import javax.inject.Singleton;
-
-@Singleton
 public class ToggleSneakService {
 
   private boolean toggledSprint;
@@ -27,10 +23,6 @@ public class ToggleSneakService {
 
   private boolean pressedSprint;
   private boolean pressedSneak;
-
-  @Inject
-  private ToggleSneakService() {
-  }
 
   public boolean isSprintToggled() {
     return this.toggledSprint;
