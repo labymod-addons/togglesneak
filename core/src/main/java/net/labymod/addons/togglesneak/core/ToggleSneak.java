@@ -40,6 +40,7 @@ public class ToggleSneak extends LabyAddon<ToggleSneakConfiguration> {
       controller = new DefaultToggleSneakController();
     }
 
+    controller.test();
     this.registerListener(new ToggleSneakListener(this, controller, service, this.labyAPI()));
     this.labyAPI().hudWidgetRegistry().register(new ToggleSneakHudWidget(service));
   }

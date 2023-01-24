@@ -38,6 +38,13 @@ public class VersionedToggleSneakController extends ToggleSneakController {
   }
 
   @Override
+  public void test() {
+    // this is to prevent log spam while in development environment, as the addon will be
+    // obfuscated on build, and those obfuscated classes don't exist in the development environment
+    Minecraft.getMinecraft();
+  }
+
+  @Override
   public void setSprinting(boolean sprinting) {
     super.setSprinting(sprinting);
     this.getMovementInput().updatePlayerMoveState();

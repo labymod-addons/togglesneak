@@ -28,6 +28,10 @@ public abstract class ToggleSneakController {
 
   public abstract Phase phase();
 
+  public void test() {
+    // ignored
+  }
+
   public boolean isSprintPressed() {
     return this.sprintInputMapping().isActuallyDown();
   }
