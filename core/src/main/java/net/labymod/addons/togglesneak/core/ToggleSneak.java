@@ -28,7 +28,6 @@ import net.labymod.api.models.addon.annotation.AddonMain;
 @AddonMain
 public class ToggleSneak extends LabyAddon<ToggleSneakConfiguration> {
 
-
   @Override
   protected void enable() {
     this.registerSettingCategory();
