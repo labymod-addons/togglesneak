@@ -28,7 +28,6 @@ import net.labymod.api.models.addon.annotation.AddonMain;
 @AddonMain
 public class ToggleSneak extends LabyAddon<ToggleSneakConfiguration> {
 
-
   @Override
   protected void enable() {
     this.registerSettingCategory();
@@ -42,6 +41,7 @@ public class ToggleSneak extends LabyAddon<ToggleSneakConfiguration> {
 
     controller.test();
     this.registerListener(new ToggleSneakListener(this, controller, service, this.labyAPI()));
+    
     this.labyAPI().hudWidgetRegistry().register(new ToggleSneakHudWidget(service));
   }
 
