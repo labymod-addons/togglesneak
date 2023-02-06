@@ -12,6 +12,12 @@ java.toolchain.languageVersion.set(JavaLanguageVersion.of(17))
 
 labyMod {
     defaultPackageName = "net.labymod.addons.togglesneak" //change this to your main package name (used by all modules)
+    addonInfo {
+        namespace = "togglesneak"
+        displayName = "ToggleSneak"
+        author = "LabyMedia GmbH"
+        version = System.getenv().getOrDefault("VERSION", "0.0.1")
+    }
 
     minecraft {
         registerVersions("1.8.9", "1.17.1", "1.18.2", "1.19.2", "1.19.3") { version, provider ->
@@ -23,13 +29,6 @@ labyMod {
                 filter(it.name)
             }
         }
-    }
-
-    addonInfo {
-        namespace = "togglesneak"
-        displayName = "ToggleSneak"
-        author = "LabyMedia GmbH"
-        version = System.getenv().getOrDefault("VERSION", "0.0.1")
     }
 
     addonDev {

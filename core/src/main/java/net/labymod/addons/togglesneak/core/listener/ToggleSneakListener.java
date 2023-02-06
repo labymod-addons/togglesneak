@@ -68,15 +68,17 @@ public class ToggleSneakListener {
       return;
     }
 
-    boolean lastPressed = this.service.isSprintPressed();
-    boolean sprintPressed = this.controller.isSprintPressed();
-    if (sprintPressed) {
-      if (!lastPressed) {
-        this.service.setSprintPressed(true);
-        this.service.toggleSprint();
+    if (!reset) {
+      boolean lastPressed = this.service.isSprintPressed();
+      boolean sprintPressed = this.controller.isSprintPressed();
+      if (sprintPressed) {
+        if (!lastPressed) {
+          this.service.setSprintPressed(true);
+          this.service.toggleSprint();
+        }
+      } else if (lastPressed) {
+        this.service.setSprintPressed(false);
       }
-    } else if (lastPressed) {
-      this.service.setSprintPressed(false);
     }
 
     this.controller.setSprinting(
@@ -91,15 +93,17 @@ public class ToggleSneakListener {
       return;
     }
 
-    boolean lastPressed = this.service.isSneakPressed();
     boolean sneakPressed = this.controller.isSneakPressed();
-    if (sneakPressed) {
-      if (!lastPressed) {
-        this.service.setSneakPressed(true);
-        this.service.toggleSneak();
+    if (!reset) {
+      boolean lastPressed = this.service.isSneakPressed();
+      if (sneakPressed) {
+        if (!lastPressed) {
+          this.service.setSneakPressed(true);
+          this.service.toggleSneak();
+        }
+      } else if (lastPressed) {
+        this.service.setSneakPressed(false);
       }
-    } else if (lastPressed) {
-      this.service.setSneakPressed(false);
     }
 
     this.controller.setSneaking(!reset && (sneakPressed || this.service.isSneakToggled()));
