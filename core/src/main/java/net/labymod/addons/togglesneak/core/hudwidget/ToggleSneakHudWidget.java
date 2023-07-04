@@ -22,6 +22,7 @@ import net.labymod.api.client.gui.hud.hudwidget.text.TextHudWidget;
 import net.labymod.api.client.gui.hud.hudwidget.text.TextHudWidgetConfig;
 import net.labymod.api.client.gui.hud.hudwidget.text.TextLine;
 import net.labymod.api.util.TextFormat;
+import net.labymod.api.util.bounds.area.RectangleAreaPosition;
 
 public class ToggleSneakHudWidget extends TextHudWidget<TextHudWidgetConfig> {
 
@@ -36,6 +37,17 @@ public class ToggleSneakHudWidget extends TextHudWidget<TextHudWidgetConfig> {
   public ToggleSneakHudWidget(ToggleSneakService service) {
     super("toggleSneak");
     this.service = service;
+  }
+
+  @Override
+  public void initializePreConfigured(TextHudWidgetConfig config) {
+    super.initializePreConfigured(config);
+
+    config.setEnabled(true);
+    config.setAreaIdentifier(RectangleAreaPosition.TOP_RIGHT);
+    config.setX(-2);
+    config.setY(2);
+    config.setParentToTailOfChainIn(RectangleAreaPosition.TOP_RIGHT);
   }
 
   @Override
