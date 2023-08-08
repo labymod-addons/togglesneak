@@ -18,14 +18,19 @@ package net.labymod.addons.togglesneak.core.controller;
 
 import net.labymod.api.Laby;
 import net.labymod.api.client.options.MinecraftInputMapping;
+import net.labymod.api.client.options.MinecraftOptions;
 import net.labymod.api.client.options.ToggleInputMapping;
 import net.labymod.api.event.Phase;
 import net.labymod.api.reference.annotation.Referenceable;
+import net.labymod.api.util.Lazy;
 import org.jetbrains.annotations.Nullable;
 
 @Nullable
 @Referenceable
 public abstract class ToggleSneakController {
+
+  private static final Lazy<MinecraftOptions> MINECRAFT_OPTIONS =
+      Lazy.of(() -> Laby.labyAPI().minecraft().options());
 
   public abstract Phase phase();
 
@@ -50,15 +55,15 @@ public abstract class ToggleSneakController {
   }
 
   private MinecraftInputMapping sprintInputMapping() {
-    return Laby.labyAPI().minecraft().options().sprintInput();
+    return MINECRAFT_OPTIONS.get().sprintInput();
   }
 
   private MinecraftInputMapping sneakInputMapping() {
-    return Laby.labyAPI().minecraft().options().sneakInput();
+    return MINECRAFT_OPTIONS.get().sneakInput();
   }
 
   private void update(MinecraftInputMapping inputMapping, boolean press) {
-    if (!(inputMapping instanceof ToggleInputMapping)) {
+    if (!(inputMapping instanceof ToggleInputMapping toggleInputMapping)) {
       if (press == inputMapping.isDown()) {
         return;
       }
@@ -72,7 +77,6 @@ public abstract class ToggleSneakController {
       return;
     }
 
-    ToggleInputMapping toggleInputMapping = (ToggleInputMapping) inputMapping;
     if (press) {
       toggleInputMapping.forcePress();
     } else {

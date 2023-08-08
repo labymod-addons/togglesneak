@@ -54,9 +54,11 @@ public class ToggleSneakHudWidget extends TextHudWidget<TextHudWidgetConfig> {
   public void load(TextHudWidgetConfig config) {
     super.load(config);
 
+    this.lastSprintState = null;
     this.sprintingLine = super.createLine("Sprinting", "");
     this.updateSprintingTextLine(State.NO);
 
+    this.lastSneakState = null;
     this.sneakingLine = super.createLine("Sneaking", "");
     this.updateSneakingTextLine(State.NO);
   }

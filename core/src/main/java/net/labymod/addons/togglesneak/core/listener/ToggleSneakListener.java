@@ -82,7 +82,8 @@ public class ToggleSneakListener {
     }
 
     this.controller.setSprinting(
-        !reset && clientPlayer.getForwardMovingSpeed() > 0.0F && this.service.isSprintToggled()
+        !reset && clientPlayer.getForwardMovingSpeed() > 0.0F && (this.service.isSprintToggled()
+            || this.controller.isSprintPressed())
     );
   }
 
