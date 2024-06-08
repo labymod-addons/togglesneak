@@ -5,22 +5,20 @@ plugins {
     id("org.cadixdev.licenser") version ("0.6.1")
 }
 
-group = "org.example"
-version = "1.0.0"
-
-java.toolchain.languageVersion.set(JavaLanguageVersion.of(17))
+group = "net.labymod.addons"
+version = "0.0.1"
 
 labyMod {
-    defaultPackageName = "net.labymod.addons.togglesneak" //change this to your main package name (used by all modules)
+    defaultPackageName = "net.labymod.addons.togglesneak"
     addonInfo {
         namespace = "togglesneak"
         displayName = "ToggleSneak"
         author = "LabyMedia GmbH"
-        version = System.getenv().getOrDefault("VERSION", "0.0.1")
+        version = System.getenv().getOrDefault("VERSION", project.version.toString())
     }
 
     minecraft {
-        registerVersions("1.8.9", "1.12.2", "1.20.1") { version, provider ->
+        registerVersions("1.8.9", "1.12.2", "1.20.6") { version, provider ->
             configureRun(provider, version)
         }
 
@@ -32,8 +30,7 @@ labyMod {
     }
 
     addonDev {
-        //localRelease()
-        snapshotRelease()
+        localRelease()
     }
 }
 
@@ -61,7 +58,6 @@ fun configureRun(provider: net.labymod.gradle.core.minecraft.provider.VersionPro
         jvmArgs("-Dnet.labymod.running-version=${gameVersion}")
         jvmArgs("-Dmixin.debug=true")
         jvmArgs("-Dnet.labymod.debugging.all=true")
-        jvmArgs("-Dmixin.env.disableRefMap=true")
 
         if (org.gradle.internal.os.OperatingSystem.current() == org.gradle.internal.os.OperatingSystem.MAC_OS) {
             jvmArgs("-XstartOnFirstThread")
@@ -72,11 +68,7 @@ fun configureRun(provider: net.labymod.gradle.core.minecraft.provider.VersionPro
         args("--addon-dev-environment", "true")
     }
 
-    provider.javaVersion = when (gameVersion) {
-        else -> {
-            JavaVersion.VERSION_17
-        }
-    }
+    provider.javaVersion = JavaVersion.VERSION_21
 
     provider.mixin {
         val mixinMinVersion = when (gameVersion) {

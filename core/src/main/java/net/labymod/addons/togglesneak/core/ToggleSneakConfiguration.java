@@ -17,13 +17,19 @@
 package net.labymod.addons.togglesneak.core;
 
 import net.labymod.api.addon.AddonConfig;
+import net.labymod.api.client.gui.screen.widget.widgets.input.SliderWidget.SliderSetting;
 import net.labymod.api.client.gui.screen.widget.widgets.input.SwitchWidget.SwitchSetting;
 import net.labymod.api.configuration.loader.annotation.ConfigName;
+import net.labymod.api.configuration.loader.annotation.PermissionRequired;
 import net.labymod.api.configuration.loader.property.ConfigProperty;
+import net.labymod.api.configuration.settings.annotation.SettingRequires;
+import net.labymod.api.configuration.settings.annotation.SettingSection;
 
 @SuppressWarnings("FieldMayBeFinal")
 @ConfigName("settings")
 public class ToggleSneakConfiguration extends AddonConfig {
+
+  public static final String FLYBOOST_PERMISSION = "flyboost";
 
   @SwitchSetting(hotkey = true)
   private final ConfigProperty<Boolean> enabled = new ConfigProperty<>(true);
@@ -33,6 +39,15 @@ public class ToggleSneakConfiguration extends AddonConfig {
 
   @SwitchSetting
   private final ConfigProperty<Boolean> toggleSneak = new ConfigProperty<>(true);
+
+  @SettingSection("flyBoost")
+  @PermissionRequired(FLYBOOST_PERMISSION)
+  @SwitchSetting(hotkey = true)
+  private final ConfigProperty<Boolean> flyBoost = new ConfigProperty<>(false);
+
+  @SettingRequires("flyBoost")
+  @SliderSetting(min = 0.1F, max = 3.0F, steps = 0.1F)
+  private final ConfigProperty<Float> flyBoostFactor = new ConfigProperty<>(1.5F);
 
   @Override
   public ConfigProperty<Boolean> enabled() {
@@ -45,5 +60,13 @@ public class ToggleSneakConfiguration extends AddonConfig {
 
   public ConfigProperty<Boolean> toggleSneak() {
     return this.toggleSneak;
+  }
+
+  public ConfigProperty<Boolean> flyBoost() {
+    return this.flyBoost;
+  }
+
+  public ConfigProperty<Float> flyBoostFactor() {
+    return this.flyBoostFactor;
   }
 }

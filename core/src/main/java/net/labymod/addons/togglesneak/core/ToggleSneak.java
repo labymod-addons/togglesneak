@@ -20,7 +20,10 @@ import net.labymod.addons.togglesneak.core.controller.DefaultToggleSneakControll
 import net.labymod.addons.togglesneak.core.controller.ToggleSneakController;
 import net.labymod.addons.togglesneak.core.generated.DefaultReferenceStorage;
 import net.labymod.addons.togglesneak.core.hudwidget.ToggleSneakHudWidget;
+import net.labymod.addons.togglesneak.core.listener.FlyBoostListener;
 import net.labymod.addons.togglesneak.core.listener.ToggleSneakListener;
+import net.labymod.addons.togglesneak.core.server.HypixelFlyBoostServer;
+import net.labymod.addons.togglesneak.core.service.FlyBoostService;
 import net.labymod.addons.togglesneak.core.service.ToggleSneakService;
 import net.labymod.api.addon.LabyAddon;
 import net.labymod.api.models.addon.annotation.AddonMain;
@@ -32,17 +35,26 @@ public class ToggleSneak extends LabyAddon<ToggleSneakConfiguration> {
   protected void enable() {
     this.registerSettingCategory();
 
-    DefaultReferenceStorage references = this.getReferenceStorageAccessor();
-    ToggleSneakService service = new ToggleSneakService();
-    ToggleSneakController controller = references.getToggleSneakController();
+    this.labyAPI().permissionRegistry()
+        .register(ToggleSneakConfiguration.FLYBOOST_PERMISSION, false);
+    this.labyAPI().serverController().registerServer(new HypixelFlyBoostServer());
+
+    ToggleSneakController controller = this.references().getToggleSneakController();
     if (controller == null) {
       controller = new DefaultToggleSneakController();
     }
-
     controller.test();
+
+    ToggleSneakService service = new ToggleSneakService();
     this.registerListener(new ToggleSneakListener(this, controller, service, this.labyAPI()));
-    
     this.labyAPI().hudWidgetRegistry().register(new ToggleSneakHudWidget(service));
+
+    FlyBoostService flyBoostService = new FlyBoostService(this.labyAPI(), this.configuration());
+    this.registerListener(new FlyBoostListener(flyBoostService));
+  }
+
+  private DefaultReferenceStorage references() {
+    return this.referenceStorageAccessor();
   }
 
   @Override
