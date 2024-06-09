@@ -35,10 +35,6 @@ public class ToggleSneak extends LabyAddon<ToggleSneakConfiguration> {
   protected void enable() {
     this.registerSettingCategory();
 
-    this.labyAPI().permissionRegistry()
-        .register(ToggleSneakConfiguration.FLYBOOST_PERMISSION, false);
-    this.labyAPI().serverController().registerServer(new HypixelFlyBoostServer());
-
     ToggleSneakController controller = this.references().getToggleSneakController();
     if (controller == null) {
       controller = new DefaultToggleSneakController();
@@ -50,7 +46,11 @@ public class ToggleSneak extends LabyAddon<ToggleSneakConfiguration> {
     this.labyAPI().hudWidgetRegistry().register(new ToggleSneakHudWidget(service));
 
     FlyBoostService flyBoostService = new FlyBoostService(this.labyAPI(), this.configuration());
-    this.registerListener(new FlyBoostListener(flyBoostService));
+    this.registerListener(new FlyBoostListener(this.labyAPI(), flyBoostService));
+
+    this.labyAPI().permissionRegistry()
+        .register(ToggleSneakConfiguration.FLYBOOST_PERMISSION, false);
+    this.labyAPI().serverController().registerServer(new HypixelFlyBoostServer());
   }
 
   private DefaultReferenceStorage references() {
