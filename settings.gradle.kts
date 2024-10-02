@@ -1,26 +1,24 @@
 rootProject.name = "togglesneak"
 
 pluginManagement {
-    val labyGradlePluginVersion = "0.3.28"
-    plugins {
-        id("net.labymod.gradle") version (labyGradlePluginVersion)
-    }
+    val labyGradlePluginVersion = "0.5.5"
 
     buildscript {
         repositories {
             maven("https://dist.labymod.net/api/v1/maven/release/")
-            maven("https://repo.spongepowered.org/repository/maven-public")
+            maven("https://maven.neoforged.net/releases/")
+            maven("https://maven.fabricmc.net/")
+            gradlePluginPortal()
             mavenCentral()
-            mavenLocal()
         }
 
         dependencies {
-            classpath("net.labymod.gradle", "addon", labyGradlePluginVersion)
+            classpath("net.labymod.gradle", "common", labyGradlePluginVersion)
         }
     }
 }
 
-plugins.apply("net.labymod.gradle")
+plugins.apply("net.labymod.labygradle.settings")
 
 include(":api")
 include(":core")
