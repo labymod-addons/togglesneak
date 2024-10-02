@@ -51,7 +51,7 @@ public class ToggleSneakListener {
     }
 
     Minecraft minecraft = this.labyAPI.minecraft();
-    ClientPlayer clientPlayer = minecraft.clientPlayer();
+    ClientPlayer clientPlayer = minecraft.getClientPlayer();
     if (clientPlayer == null) {
       return;
     }

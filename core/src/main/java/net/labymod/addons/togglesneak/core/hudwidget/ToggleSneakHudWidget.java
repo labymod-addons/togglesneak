@@ -64,9 +64,9 @@ public class ToggleSneakHudWidget extends TextHudWidget<TextHudWidgetConfig> {
   }
 
   @Override
-  public void onTick() {
+  public void onTick(boolean isEditorContext) {
     State currentSneakState = State.NO;
-    ClientPlayer clientPlayer = this.labyAPI.minecraft().clientPlayer();
+    ClientPlayer clientPlayer = this.labyAPI.minecraft().getClientPlayer();
     if (clientPlayer != null && !clientPlayer.isSprinting()) {
       if (this.service.isSneakToggled()) {
         currentSneakState = State.TOGGLED;

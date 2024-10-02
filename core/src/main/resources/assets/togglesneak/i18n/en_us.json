@@ -1,20 +1,31 @@
 {
-  "togglesneak" : {
-    "settings" : {
-      "name" : "ToggleSneak",
-      "enabled" : {
-        "name" : "Enabled"
+  "togglesneak": {
+    "settings": {
+      "name": "ToggleSneak",
+      "header": {
+        "flyBoost": {
+          "name": "Fly Boost"
+        }
       },
-      "toggleSprint" : {
-        "name" : "Toggle Sprint"
+      "enabled": {
+        "name": "Enabled"
       },
-      "toggleSneak" : {
-        "name" : "Toggle Sneak"
+      "toggleSprint": {
+        "name": "Toggle Sprint"
+      },
+      "toggleSneak": {
+        "name": "Toggle Sneak"
+      },
+      "flyBoost": {
+        "name": "Fly Boost"
+      },
+      "flyBoostFactor": {
+        "name": "Fly Boost Factor"
       }
     },
-    "hudWidget" : {
-      "toggleSneak" : {
-        "name" : "ToggleSneak"
+    "hudWidget": {
+      "toggleSneak": {
+        "name": "ToggleSneak"
       }
     }
   }
