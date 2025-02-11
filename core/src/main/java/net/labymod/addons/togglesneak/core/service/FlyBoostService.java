@@ -46,7 +46,7 @@ public class FlyBoostService {
     PlayerAbilities abilities = player.abilities();
 
     if (!abilities.flying().get()
-        || player.gameMode() != GameMode.CREATIVE
+        || (player.gameMode() != GameMode.CREATIVE && player.gameMode() != GameMode.SPECTATOR)
         || this.originalFlySpeed == null) {
       return;
     }
