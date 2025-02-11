@@ -14,32 +14,23 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
  */
 
-package net.labymod.addons.togglesneak.core.server;
+package net.labymod.addons.togglesneak.core.listener;
 
-import net.labymod.addons.togglesneak.core.ToggleSneakConfiguration;
-import net.labymod.api.Laby;
-import net.labymod.api.client.network.server.AbstractServer;
-import net.labymod.api.event.Phase;
+import net.labymod.addons.togglesneak.core.ToggleSneak;
+import net.labymod.api.event.Subscribe;
+import net.labymod.api.event.client.network.server.ServerJoinEvent;
 
-public class HypixelFlyBoostServer extends AbstractServer {
+public class ServerJoinListener {
 
-  private static final String NAME = "hypixel";
+  private final ToggleSneak toggleSneak;
 
-  public HypixelFlyBoostServer() {
-    super(NAME);
+  public ServerJoinListener(ToggleSneak toggleSneak) {
+    this.toggleSneak = toggleSneak;
   }
 
-  @Override
-  public void loginOrSwitch(LoginPhase phase) {
-    var flyBoostPermission = Laby.labyAPI().permissionRegistry()
-        .getPermission(ToggleSneakConfiguration.FLYBOOST_PERMISSION);
-    if (flyBoostPermission != null) {
-      flyBoostPermission.setEnabled(false);
-    }
+  @Subscribe
+  public void onServerJoin(ServerJoinEvent event) {
+    this.toggleSneak.resetWarningSent();
   }
 
-  @Override
-  public void disconnect(Phase phase) {
-
-  }
 }

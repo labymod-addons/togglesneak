@@ -17,6 +17,7 @@
 package net.labymod.addons.togglesneak.core.listener;
 
 import net.labymod.addons.togglesneak.core.ToggleSneak;
+import net.labymod.addons.togglesneak.core.ToggleSneakConfiguration;
 import net.labymod.addons.togglesneak.core.controller.ToggleSneakController;
 import net.labymod.addons.togglesneak.core.service.ToggleSneakService;
 import net.labymod.api.LabyAPI;
@@ -88,7 +89,11 @@ public class ToggleSneakListener {
   }
 
   private void applyToggleSneak(ClientPlayer clientPlayer, boolean reset) {
-    if (!this.toggleSneak.configuration().toggleSneak().get() || clientPlayer.isSprinting()) {
+    ToggleSneakConfiguration configuration = this.toggleSneak.configuration();
+    if (!configuration.toggleSneak().get()
+        || clientPlayer.isSprinting()
+        || (clientPlayer.isAbilitiesFlying() && configuration.toggleSneakDisableWhileFlying()
+        .get())) {
       this.service.setSneakPressed(false);
       this.service.toggleSneak(false);
       return;

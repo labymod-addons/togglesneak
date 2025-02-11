@@ -34,11 +34,16 @@ public class ToggleSneakConfiguration extends AddonConfig {
   @SwitchSetting(hotkey = true)
   private final ConfigProperty<Boolean> enabled = new ConfigProperty<>(true);
 
+  @SettingSection("toggleSprint")
   @SwitchSetting
   private final ConfigProperty<Boolean> toggleSprint = new ConfigProperty<>(true);
 
+  @SettingSection("toggleSneak")
   @SwitchSetting
   private final ConfigProperty<Boolean> toggleSneak = new ConfigProperty<>(true);
+
+  @SwitchSetting
+  private final ConfigProperty<Boolean> toggleSneakDisableWhileFlying = new ConfigProperty<>(true);
 
   @SettingSection("flyBoost")
   @PermissionRequired(FLYBOOST_PERMISSION)
@@ -46,8 +51,13 @@ public class ToggleSneakConfiguration extends AddonConfig {
   private final ConfigProperty<Boolean> flyBoost = new ConfigProperty<>(false);
 
   @SettingRequires("flyBoost")
-  @SliderSetting(min = 0.1F, max = 3.0F, steps = 0.1F)
+  @SliderSetting(min = 0.1F, max = 5.0F, steps = 0.1F)
   private final ConfigProperty<Float> flyBoostFactor = new ConfigProperty<>(1.5F);
+
+  @SwitchSetting
+  @SettingRequires("flyBoost")
+  private final ConfigProperty<Boolean> flyBoostOnlyWhileSprinting = new ConfigProperty<>(true);
+
 
   @Override
   public ConfigProperty<Boolean> enabled() {
@@ -62,11 +72,19 @@ public class ToggleSneakConfiguration extends AddonConfig {
     return this.toggleSneak;
   }
 
+  public ConfigProperty<Boolean> toggleSneakDisableWhileFlying() {
+    return this.toggleSneakDisableWhileFlying;
+  }
+
   public ConfigProperty<Boolean> flyBoost() {
     return this.flyBoost;
   }
 
   public ConfigProperty<Float> flyBoostFactor() {
     return this.flyBoostFactor;
+  }
+
+  public ConfigProperty<Boolean> flyBoostOnlyWhileSprinting() {
+    return this.flyBoostOnlyWhileSprinting;
   }
 }

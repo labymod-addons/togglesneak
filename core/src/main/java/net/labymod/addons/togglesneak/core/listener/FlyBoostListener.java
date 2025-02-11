@@ -65,6 +65,7 @@ public class FlyBoostListener {
       // Reset fly speed to original value, if present
       clientPlayer.abilities().flyingSpeed().set(flySpeed);
     }
+
     this.service.setOriginalFlySpeed(null);
   }
 }

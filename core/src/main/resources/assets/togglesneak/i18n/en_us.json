@@ -5,6 +5,12 @@
       "header": {
         "flyBoost": {
           "name": "Fly Boost"
+        },
+        "toggleSneak": {
+          "name": "Toggle Sneak"
+        },
+        "toggleSprint": {
+          "name": "Toggle Sprint"
         }
       },
       "enabled": {
@@ -16,16 +22,29 @@
       "toggleSneak": {
         "name": "Toggle Sneak"
       },
+      "toggleSneakDisableWhileFlying": {
+        "name": "Disable While Flying",
+        "description": "If enabled, the toggle sneak will be disabled while the player is flying."
+      },
       "flyBoost": {
         "name": "Fly Boost"
       },
       "flyBoostFactor": {
-        "name": "Fly Boost Factor"
+        "name": "Factor"
+      },
+      "flyBoostOnlyWhileSprinting": {
+        "name": "Only While Sprinting",
+        "description": "If enabled, the fly boost will only be applied while the player is sprinting."
       }
     },
     "hudWidget": {
       "toggleSneak": {
         "name": "ToggleSneak"
+      }
+    },
+    "permissions": {
+      "flyboost": {
+        "denied": "The setting \"Fly Boost\" has been force disabled by the server."
       }
     }
   }

@@ -52,12 +52,16 @@ public class FlyBoostService {
     }
 
     abilities.flyingSpeed().set(
-        this.originalFlySpeed *
-            (this.isEnabled() ? this.configuration.flyBoostFactor().get() : 1.0F)
+        this.originalFlySpeed * (this.isEnabled(player) ? this.configuration.flyBoostFactor().get()
+            : 1.0F)
     );
   }
 
-  private boolean isEnabled() {
+  private boolean isEnabled(Player player) {
+    if (!player.isSprinting() && this.configuration.flyBoostOnlyWhileSprinting().get()) {
+      return false;
+    }
+
     return this.labyAPI.permissionRegistry().isPermissionEnabled(
         ToggleSneakConfiguration.FLYBOOST_PERMISSION,
         this.configuration.flyBoost()
