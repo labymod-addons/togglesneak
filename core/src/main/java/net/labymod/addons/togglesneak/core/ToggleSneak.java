@@ -20,7 +20,10 @@ import net.labymod.addons.togglesneak.core.controller.DefaultToggleSneakControll
 import net.labymod.addons.togglesneak.core.controller.ToggleSneakController;
 import net.labymod.addons.togglesneak.core.generated.DefaultReferenceStorage;
 import net.labymod.addons.togglesneak.core.hudwidget.ToggleSneakHudWidget;
+import net.labymod.addons.togglesneak.core.listener.FlyBoostListener;
+import net.labymod.addons.togglesneak.core.listener.PermissionStateChangeListener;
 import net.labymod.addons.togglesneak.core.listener.ToggleSneakListener;
+import net.labymod.addons.togglesneak.core.service.FlyBoostService;
 import net.labymod.addons.togglesneak.core.service.ToggleSneakService;
 import net.labymod.api.addon.LabyAddon;
 import net.labymod.api.models.addon.annotation.AddonMain;
@@ -28,25 +31,40 @@ import net.labymod.api.models.addon.annotation.AddonMain;
 @AddonMain
 public class ToggleSneak extends LabyAddon<ToggleSneakConfiguration> {
 
+  private final PermissionStateChangeListener permissionStateChangeListener = new PermissionStateChangeListener();
+
   @Override
   protected void enable() {
     this.registerSettingCategory();
 
-    DefaultReferenceStorage references = this.getReferenceStorageAccessor();
-    ToggleSneakService service = new ToggleSneakService();
-    ToggleSneakController controller = references.getToggleSneakController();
+    ToggleSneakController controller = this.references().getToggleSneakController();
     if (controller == null) {
       controller = new DefaultToggleSneakController();
     }
-
     controller.test();
+
+    this.labyAPI().permissionRegistry()
+        .register(ToggleSneakConfiguration.FLYBOOST_PERMISSION, true);
+
+    ToggleSneakService service = new ToggleSneakService();
     this.registerListener(new ToggleSneakListener(this, controller, service, this.labyAPI()));
-    
+    this.registerListener(this.permissionStateChangeListener);
     this.labyAPI().hudWidgetRegistry().register(new ToggleSneakHudWidget(service));
+
+    FlyBoostService flyBoostService = new FlyBoostService(this.labyAPI(), this.configuration());
+    this.registerListener(new FlyBoostListener(this.labyAPI(), flyBoostService));
+  }
+
+  private DefaultReferenceStorage references() {
+    return this.referenceStorageAccessor();
   }
 
   @Override
   protected Class<ToggleSneakConfiguration> configurationClass() {
     return ToggleSneakConfiguration.class;
+  }
+
+  public void resetWarningSent() {
+    this.permissionStateChangeListener.resetWarningSent();
   }
 }
