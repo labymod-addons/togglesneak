@@ -24,7 +24,7 @@
       },
       "toggleSneakDisableWhileFlying": {
         "name": "Disable While Flying",
-        "description": "If enabled, the toggle sneak will be disabled while the player is flying."
+        "description": "If enabled, toggle sneak will be disabled while the player is flying."
       },
       "flyBoost": {
         "name": "Fly Boost"
