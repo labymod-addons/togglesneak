@@ -18,6 +18,7 @@ package net.labymod.addons.togglesneak.core.service;
 
 import net.labymod.addons.togglesneak.core.ToggleSneakConfiguration;
 import net.labymod.api.LabyAPI;
+import net.labymod.api.client.Minecraft;
 import net.labymod.api.client.entity.player.GameMode;
 import net.labymod.api.client.entity.player.Player;
 import net.labymod.api.client.entity.player.abilities.PlayerAbilities;
@@ -32,6 +33,11 @@ public class FlyBoostService {
   public FlyBoostService(LabyAPI labyAPI, ToggleSneakConfiguration configuration) {
     this.labyAPI = labyAPI;
     this.configuration = configuration;
+
+    Minecraft minecraft = labyAPI.minecraft();
+    if (minecraft.isIngame() && minecraft.getClientPlayer() != null) {
+      this.originalFlySpeed = minecraft.getClientPlayer().abilities().flyingSpeed().get();
+    }
   }
 
   public Float getOriginalFlySpeed() {
