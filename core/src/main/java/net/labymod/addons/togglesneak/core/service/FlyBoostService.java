@@ -52,7 +52,7 @@ public class FlyBoostService {
     PlayerAbilities abilities = player.abilities();
 
     if (!abilities.flying().get()
-        || (player.gameMode() != GameMode.CREATIVE && player.gameMode() != GameMode.SPECTATOR)
+        || (player.gameMode() != GameMode.CREATIVE && !(player.gameMode() == GameMode.SPECTATOR && this.configuration.overwriteSpectatorFlyBoost().get())) //When gamemode is (creative) OR (is spectator AND overwrite spectator fly boost is enabled), then apply fly boost
         || this.originalFlySpeed == null) {
       return;
     }

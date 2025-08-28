@@ -58,6 +58,10 @@ public class ToggleSneakConfiguration extends AddonConfig {
   @SettingRequires("flyBoost")
   private final ConfigProperty<Boolean> flyBoostOnlyWhileSprinting = new ConfigProperty<>(true);
 
+  @SwitchSetting
+  @SettingRequires("flyBoost")
+  private final ConfigProperty<Boolean> overwriteSpectatorFlyBoost = new ConfigProperty<>(true);
+
 
   @Override
   public ConfigProperty<Boolean> enabled() {
@@ -86,5 +90,9 @@ public class ToggleSneakConfiguration extends AddonConfig {
 
   public ConfigProperty<Boolean> flyBoostOnlyWhileSprinting() {
     return this.flyBoostOnlyWhileSprinting;
+  }
+
+  public ConfigProperty<Boolean> overwriteSpectatorFlyBoost() {
+    return this.overwriteSpectatorFlyBoost;
   }
 }
