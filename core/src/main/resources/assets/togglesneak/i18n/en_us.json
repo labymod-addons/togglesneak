@@ -35,6 +35,10 @@
       "flyBoostOnlyWhileSprinting": {
         "name": "Only While Sprinting",
         "description": "If enabled, the fly boost will only be applied while the player is sprinting."
+      },
+      "overwriteSpectatorFlyBoost": {
+        "name": "Overwrite Spectator Fly Boost",
+        "description": "If enabled, the addon will overwrite the spectator fly boost that can be changed by scrolling with the mouse wheel."
       }
     },
     "hudWidget": {
