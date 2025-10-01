@@ -1,0 +1,55 @@
+{
+    "togglesneak": {
+        "settings": {
+            "name": "",
+            "header": {
+                "flyBoost": {
+                    "name": ""
+                },
+                "toggleSneak": {
+                    "name": ""
+                },
+                "toggleSprint": {
+                    "name": ""
+                }
+            },
+            "enabled": {
+                "name": ""
+            },
+            "toggleSprint": {
+                "name": ""
+            },
+            "toggleSneak": {
+                "name": ""
+            },
+            "toggleSneakDisableWhileFlying": {
+                "name": "",
+                "description": ""
+            },
+            "flyBoost": {
+                "name": ""
+            },
+            "flyBoostFactor": {
+                "name": ""
+            },
+            "flyBoostOnlyWhileSprinting": {
+                "name": "",
+                "description": ""
+            },
+            "overwriteSpectatorFlyBoost": {
+                "name": "",
+                "description": ""
+            }
+        },
+        "hudWidget": {
+            "toggleSneak": {
+                "name": ""
+            }
+        },
+        "permissions": {
+            "flyboost": {
+                "denied": ""
+            }
+        }
+    }
+}
