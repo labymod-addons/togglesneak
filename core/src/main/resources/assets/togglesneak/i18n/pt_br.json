@@ -1,1 +1,9 @@
-{}
+{
+    "togglesneak": {
+        "settings": {
+            "enabled": {
+                "name": "Ativado"
+            }
+        }
+    }
+}
