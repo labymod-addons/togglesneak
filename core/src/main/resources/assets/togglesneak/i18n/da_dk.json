@@ -1,1 +1,18 @@
-{}
+{
+    "togglesneak": {
+        "settings": {
+            "name": "ToggleSneak",
+            "header": {
+                "flyBoost": {
+                    "name": "Flyve Boost"
+                }
+            },
+            "enabled": {
+                "name": "Aktiveret"
+            },
+            "toggleSneakDisableWhileFlying": {
+                "name": "Deaktiver Under Flyvning"
+            }
+        }
+    }
+}
