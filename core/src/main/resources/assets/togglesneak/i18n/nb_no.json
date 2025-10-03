@@ -1,1 +1,7 @@
-{}
+{
+    "togglesneak": {
+        "settings": {
+            "name": "VeksleSnike"
+        }
+    }
+}
