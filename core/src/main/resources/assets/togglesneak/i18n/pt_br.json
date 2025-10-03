@@ -3,6 +3,12 @@
         "settings": {
             "enabled": {
                 "name": "Ativado"
+            },
+            "flyBoost": {
+                "name": "Impulso de Voo"
+            },
+            "flyBoostFactor": {
+                "name": "Fator"
             }
         }
     }
