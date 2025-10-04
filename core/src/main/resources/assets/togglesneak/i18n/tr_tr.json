@@ -22,6 +22,9 @@
             "overwriteSpectatorFlyBoost": {
                 "name": "İzleyici uçuş hızını üzerine yaz",
                 "description": "Etkinleştirildiğinde, eklenti fare tekerleğiyle kaydırılarak değiştirilebilen izleyici uçuş güçlendirmesinin üzerinde yazacaktır."
+            },
+            "enabled": {
+                "name": "Aktif"
             }
         },
         "hudWidget": {
