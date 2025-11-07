@@ -12,6 +12,12 @@
                 "toggleSneak": {
                     "name": "Eğilmeyi Aç/Kapat"
                 }
+            },
+            "toggleSprint": {
+                "name": "Koşmayı Aç/Kapat"
+            },
+            "toggleSneak": {
+                "name": "Koşmayı Aç/Kapat"
             }
         }
     }
