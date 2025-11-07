@@ -25,6 +25,20 @@
             },
             "enabled": {
                 "name": "Aktif"
+            },
+            "toggleSneakDisableWhileFlying": {
+                "name": "Uçarken İnaktif Yap",
+                "description": "Aktifse, oyuncu uçup kaçarken toggle sneak devre dışı galcak."
+            },
+            "flyBoost": {
+                "name": "Uçuş Hızını Arttırmak"
+            },
+            "flyBoostFactor": {
+                "name": "Faktör"
+            },
+            "flyBoostOnlyWhileSprinting": {
+                "name": "Sadece Koşarken",
+                "description": "Aktifse, uçuş hızı yalnızca oyuncu koşarken uygulanır."
             }
         },
         "hudWidget": {
