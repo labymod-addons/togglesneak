@@ -1,1 +1,27 @@
-{}
+{
+    "togglesneak": {
+        "settings": {
+            "name": "Sneaken wisselen",
+            "header": {
+                "flyBoost": {
+                    "name": "Vliegboost"
+                },
+                "toggleSneak": {
+                    "name": "Sneaken aan/uit"
+                },
+                "toggleSprint": {
+                    "name": "Sprinten aan/uit zetten"
+                }
+            },
+            "enabled": {
+                "name": "Ingeschakeld"
+            },
+            "toggleSprint": {
+                "name": "Sprinten aan/uit"
+            },
+            "toggleSneak": {
+                "name": "Schakel sluipen in"
+            }
+        }
+    }
+}
