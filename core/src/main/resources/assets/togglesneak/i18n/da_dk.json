@@ -5,6 +5,12 @@
             "header": {
                 "flyBoost": {
                     "name": "Flyve Boost"
+                },
+                "toggleSneak": {
+                    "name": "Toggle Sneak"
+                },
+                "toggleSprint": {
+                    "name": "Toggle Sprint"
                 }
             },
             "enabled": {
@@ -12,6 +18,12 @@
             },
             "toggleSneakDisableWhileFlying": {
                 "name": "Deaktiver Under Flyvning"
+            },
+            "toggleSprint": {
+                "name": "Toggle Sprint"
+            },
+            "toggleSneak": {
+                "name": "Toggle Sneak"
             }
         }
     }
