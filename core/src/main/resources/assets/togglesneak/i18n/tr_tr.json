@@ -1,1 +1,18 @@
-{}
+{
+    "togglesneak": {
+        "settings": {
+            "name": "ToggleSneak",
+            "header": {
+                "flyBoost": {
+                    "name": "Uçuş Hızını Arttırmak"
+                },
+                "toggleSprint": {
+                    "name": "Koşmayı Aç/Kapat"
+                },
+                "toggleSneak": {
+                    "name": "Eğilmeyi Aç/Kapat"
+                }
+            }
+        }
+    }
+}
