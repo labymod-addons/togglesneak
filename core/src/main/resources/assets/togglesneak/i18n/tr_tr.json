@@ -21,14 +21,14 @@
             },
             "overwriteSpectatorFlyBoost": {
                 "name": "İzleyici uçuş hızını üzerine yaz",
-                "description": "Etkinleştirildiğinde, eklenti fare tekerleğiyle kaydırılarak değiştirilebilen izleyici uçuş güçlendirmesinin üzerinde yazacaktır."
+                "description": "Aktifse, eklenti fare tekerleğiyle kaydırılarak değiştirilebilen izleyici uçuş güçlendirmesinin üzerinde yazacaktır."
             },
             "enabled": {
                 "name": "Aktif"
             },
             "toggleSneakDisableWhileFlying": {
                 "name": "Uçarken İnaktif Yap",
-                "description": "Aktifse, oyuncu uçup kaçarken toggle sneak devre dışı galcak."
+                "description": "Aktifse, oyuncu uçup kaçarken toggle sneak devre dışı bırakılacak."
             },
             "flyBoost": {
                 "name": "Uçuş Hızını Arttırmak"
