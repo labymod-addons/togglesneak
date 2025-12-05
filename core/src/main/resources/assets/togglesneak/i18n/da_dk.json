@@ -17,7 +17,8 @@
                 "name": "Aktiveret"
             },
             "toggleSneakDisableWhileFlying": {
-                "name": "Deaktiver Under Flyvning"
+                "name": "Deaktiver Under Flyvning",
+                "description": "Hvis aktiveret, vil toggle sneak blive deaktiveret, mens spilleren flyver."
             },
             "toggleSprint": {
                 "name": "Toggle Sprint"
