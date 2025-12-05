@@ -18,6 +18,9 @@
             },
             "toggleSneak": {
                 "name": "Koşmayı Aç/Kapat"
+            },
+            "overwriteSpectatorFlyBoost": {
+                "name": "İzleyici uçuş hızını üzerine yaz"
             }
         }
     }
