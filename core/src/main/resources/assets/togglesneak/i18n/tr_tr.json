@@ -17,10 +17,21 @@
                 "name": "Koşmayı Aç/Kapat"
             },
             "toggleSneak": {
-                "name": "Koşmayı Aç/Kapat"
+                "name": "Eğilmeyi Aç/Kapat"
             },
             "overwriteSpectatorFlyBoost": {
-                "name": "İzleyici uçuş hızını üzerine yaz"
+                "name": "İzleyici uçuş hızını üzerine yaz",
+                "description": "Etkinleştirildiğinde, eklenti fare tekerleğiyle kaydırılarak değiştirilebilen izleyici uçuş güçlendirmesinin üzerinde yazacaktır."
+            }
+        },
+        "hudWidget": {
+            "toggleSneak": {
+                "name": "Eğilmeyi Aç/Kapat"
+            }
+        },
+        "permissions": {
+            "flyboost": {
+                "denied": "\"Uçuş Hızını Arttırma\" ayarı sunucu tarafından zorla devre dışı bırakıldı."
             }
         }
     }
