@@ -4,6 +4,52 @@
             "flyboost": {
                 "denied": "Функция «Ускорение полёта» отключена сервером."
             }
+        },
+        "settings": {
+            "name": "ToggleSneak",
+            "header": {
+                "flyBoost": {
+                    "name": "Ускорение полёта"
+                },
+                "toggleSneak": {
+                    "name": "Переключение подкрадывания"
+                },
+                "toggleSprint": {
+                    "name": "Переключение бега"
+                }
+            },
+            "enabled": {
+                "name": "Включено"
+            },
+            "toggleSprint": {
+                "name": "Переключить бег"
+            },
+            "toggleSneak": {
+                "name": "Переключить подкрадывание"
+            },
+            "toggleSneakDisableWhileFlying": {
+                "name": "Отключать при полёте",
+                "description": "Если включено, переключение подкрадывания будет отключаться во время полёта."
+            },
+            "flyBoost": {
+                "name": "Ускорение полёта"
+            },
+            "flyBoostFactor": {
+                "name": "Множитель"
+            },
+            "flyBoostOnlyWhileSprinting": {
+                "name": "Только при беге",
+                "description": "Если включено, ускорение полёта будет применяться только во время бега."
+            },
+            "overwriteSpectatorFlyBoost": {
+                "name": "Использовать в режиме наблюдателя",
+                "description": "Если включено, скорость полёта в режиме наблюдателя, настраиваемая колёсиком мыши, будет заменена дополнением."
+            }
+        },
+        "hudWidget": {
+            "toggleSneak": {
+                "name": "ToggleSneak"
+            }
         }
     }
 }
