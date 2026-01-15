@@ -25,6 +25,9 @@
             },
             "toggleSneak": {
                 "name": "Toggle Sneak"
+            },
+            "flyBoost": {
+                "name": "Flyve Boost"
             }
         }
     }
