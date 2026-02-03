@@ -31,6 +31,10 @@
             },
             "flyBoostFactor": {
                 "name": "Faktor"
+            },
+            "flyBoostOnlyWhileSprinting": {
+                "name": "Kun Imens Man Sprinter",
+                "description": "Hvis aktiveret, flyve boost vil kun være brugt når spilleren sprinter."
             }
         }
     }
