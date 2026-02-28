@@ -37,7 +37,18 @@
                 "description": "Als dit is ingeschakeld, wordt de fly boost alleen toegepast terwijl de speler sprint"
             },
             "overwriteSpectatorFlyBoost": {
-                "description": "Als dit is ingeschakeld, overschrijft de addon de spectator fly boost die kan worden aangepast door met het muiswiel te scrollen."
+                "description": "Als dit is ingeschakeld, overschrijft de addon de spectator fly boost die kan worden aangepast door met het muiswiel te scrollen.",
+                "name": "Spectator fly boost overschrijven"
+            }
+        },
+        "hudWidget": {
+            "toggleSneak": {
+                "name": "ToggleSneak"
+            }
+        },
+        "permissions": {
+            "flyboost": {
+                "denied": "De instelling \"Fly Boost\" is geforceerd uitgeschakeld door de server."
             }
         }
     }
