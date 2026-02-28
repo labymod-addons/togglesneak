@@ -21,6 +21,23 @@
             },
             "toggleSneak": {
                 "name": "Schakel sluipen in"
+            },
+            "toggleSneakDisableWhileFlying": {
+                "name": "Uitschakelen tijdens het vliegen",
+                "description": "Als deze optie is ingeschakeld, wordt toggle sneak uitgeschakeld terwijl de speler aan het vliegen is."
+            },
+            "flyBoost": {
+                "name": "Vliegboost"
+            },
+            "flyBoostFactor": {
+                "name": "Factor"
+            },
+            "flyBoostOnlyWhileSprinting": {
+                "name": "Alleen tijdens sprinten",
+                "description": "Als dit is ingeschakeld, wordt de fly boost alleen toegepast terwijl de speler sprint"
+            },
+            "overwriteSpectatorFlyBoost": {
+                "description": "Als dit is ingeschakeld, overschrijft de addon de spectator fly boost die kan worden aangepast door met het muiswiel te scrollen"
             }
         }
     }
