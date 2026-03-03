@@ -28,6 +28,9 @@
             },
             "flyBoost": {
                 "name": "Flyve Boost"
+            },
+            "flyBoostFactor": {
+                "name": "Faktor"
             }
         }
     }
