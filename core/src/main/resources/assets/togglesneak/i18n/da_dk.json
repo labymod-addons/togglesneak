@@ -37,7 +37,18 @@
                 "description": "Hvis aktiveret, flyve boost vil kun være brugt når spilleren sprinter."
             },
             "overwriteSpectatorFlyBoost": {
-                "name": "Overskrive tilskuerens flyveboost"
+                "name": "Overskrive tilskuerens flyveboost",
+                "description": "Hvis aktiveret, vil tilføjelsesmodulet overskrive tilskuerens flyveboost, som normalt kan ændres ved at rulle med musehjulet."
+            }
+        },
+        "hudWidget": {
+            "toggleSneak": {
+                "name": "ToggleSneak"
+            }
+        },
+        "permissions": {
+            "flyboost": {
+                "denied": "Indstillingen \"Flyve Boost\" er blevet tvangsdeaktiveret af serveren."
             }
         }
     }
