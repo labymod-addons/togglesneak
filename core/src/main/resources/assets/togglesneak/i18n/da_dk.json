@@ -33,8 +33,11 @@
                 "name": "Faktor"
             },
             "flyBoostOnlyWhileSprinting": {
-                "name": "Kun Imens Man Sprinter",
+                "name": "Kun mens du sprinter",
                 "description": "Hvis aktiveret, flyve boost vil kun være brugt når spilleren sprinter."
+            },
+            "overwriteSpectatorFlyBoost": {
+                "name": "Overskrive tilskuerens flyveboost"
             }
         }
     }
