@@ -5,6 +5,12 @@
             "header": {
                 "flyBoost": {
                     "name": "Boost de vol"
+                },
+                "toggleSneak": {
+                    "name": "Activer/Désactiver le sneak"
+                },
+                "toggleSprint": {
+                    "name": "Activer/Désactiver le sprint"
                 }
             }
         }
