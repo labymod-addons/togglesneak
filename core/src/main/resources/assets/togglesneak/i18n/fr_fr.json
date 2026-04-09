@@ -12,6 +12,43 @@
                 "toggleSprint": {
                     "name": "Activer/Désactiver le sprint"
                 }
+            },
+            "enabled": {
+                "name": "Activé"
+            },
+            "toggleSprint": {
+                "name": "Basculer le sprint"
+            },
+            "toggleSneak": {
+                "name": "Basculer l'accroupi"
+            },
+            "toggleSneakDisableWhileFlying": {
+                "name": "Désactiver en volant",
+                "description": "Si activé, ToggleSneak sera désactivé lorsque le joueur vole."
+            },
+            "flyBoost": {
+                "name": "Accélération en vol"
+            },
+            "flyBoostFactor": {
+                "name": "Facteur"
+            },
+            "flyBoostOnlyWhileSprinting": {
+                "name": "Seulement en sprintant",
+                "description": "Si activé, l'accélération en vol ne sera appliquée que lorsque le joueur sprinte."
+            },
+            "overwriteSpectatorFlyBoost": {
+                "name": "Écraser l'accélération en vol du spectateur",
+                "description": "Si activé, l'addon écrasera l'accélération en vol du spectateur, qui peut être modifiée en faisant défiler la molette de la souris."
+            }
+        },
+        "hudWidget": {
+            "toggleSneak": {
+                "name": "ToggleSneak"
+            }
+        },
+        "permissions": {
+            "flyboost": {
+                "denied": "Le paramètre \"Fly Boost\" a été désactivé par le serveur."
             }
         }
     }
