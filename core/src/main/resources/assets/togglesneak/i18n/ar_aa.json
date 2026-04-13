@@ -1,1 +1,15 @@
-{}
+{
+    "togglesneak": {
+        "settings": {
+            "name": "تبديل الانحناء",
+            "header": {
+                "flyBoost": {
+                    "name": "تعزيز الطيران"
+                },
+                "toggleSneak": {
+                    "name": "تبديل الانحناء"
+                }
+            }
+        }
+    }
+}
