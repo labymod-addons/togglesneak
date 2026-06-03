@@ -1,7 +1,7 @@
 rootProject.name = "togglesneak"
 
 pluginManagement {
-    val labyGradlePluginVersion = "0.5.9"
+    val labyGradlePluginVersion = "0.8.0"
 
     buildscript {
         repositories {
