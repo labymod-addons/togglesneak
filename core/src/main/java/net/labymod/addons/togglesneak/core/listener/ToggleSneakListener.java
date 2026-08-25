@@ -58,11 +58,11 @@ public class ToggleSneakListener {
     }
 
     boolean reset = minecraft.minecraftWindow().currentScreen() != null;
-    this.applyToggleSprint(clientPlayer, reset);
+    this.applyToggleSprint(reset);
     this.applyToggleSneak(clientPlayer, reset);
   }
 
-  private void applyToggleSprint(ClientPlayer clientPlayer, boolean reset) {
+  private void applyToggleSprint(boolean reset) {
     if (!this.toggleSneak.configuration().toggleSprint().get()) {
       this.service.setSprintPressed(false);
       this.service.toggleSprint(false);
@@ -83,8 +83,7 @@ public class ToggleSneakListener {
     }
 
     this.controller.setSprinting(
-        !reset && clientPlayer.getForwardMovingSpeed() > 0.0F && (this.service.isSprintToggled()
-            || this.controller.isSprintPressed())
+        !reset && (this.service.isSprintToggled() || this.controller.isSprintPressed())
     );
   }
 
