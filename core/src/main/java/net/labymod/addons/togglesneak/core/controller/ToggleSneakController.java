@@ -21,11 +21,11 @@ import net.labymod.api.client.options.MinecraftInputMapping;
 import net.labymod.api.client.options.MinecraftOptions;
 import net.labymod.api.client.options.ToggleInputMapping;
 import net.labymod.api.event.Phase;
+import net.labymod.api.models.NullableReference;
 import net.labymod.api.reference.annotation.Referenceable;
 import net.labymod.api.util.Lazy;
-import org.jetbrains.annotations.Nullable;
 
-@Nullable
+@NullableReference
 @Referenceable
 public abstract class ToggleSneakController {
 
