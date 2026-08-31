@@ -82,8 +82,10 @@ public class ToggleSneakListener {
       }
     }
 
+    // keep the bind held while a screen is open, otherwise sprinting only resumes one tick
+    // after the screen closes
     this.controller.setSprinting(
-        !reset && (this.service.isSprintToggled() || this.controller.isSprintPressed())
+        this.service.isSprintToggled() || this.controller.isSprintPressed()
     );
   }
 
