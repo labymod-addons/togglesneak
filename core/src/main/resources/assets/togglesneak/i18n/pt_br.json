@@ -9,6 +9,14 @@
             },
             "flyBoostFactor": {
                 "name": "Fator"
+            },
+            "toggleSneakDisableWhileFlying": {
+                "name": "Desativar Quando Voando"
+            }
+        },
+        "permissions": {
+            "flyboost": {
+                "denied": "A configuração \"Fly Boost\" foi desativada à força pelo servidor."
             }
         }
     }
